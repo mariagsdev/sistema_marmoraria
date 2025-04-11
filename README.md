@@ -17,11 +17,11 @@ Este projeto é um banco de dados feito em MySQL para controle de uma marmoraria
 
 O banco possui as seguintes tabelas:
 
-- `funcionarios`: login e dados dos funcionários
-- `clientes`: dados do cliente, como nome, telefone e endereço
-- `pedidos`: pedido feito pelo cliente com metragem e tipo de mármore
-- `pagamentos`: forma de pagamento e status (pago, pendente, parcial)
-- `entregas`: datas e status das entregas
-- `estoque`: materiais usados e quantidade
-- `movimentacoes_estoque`: entrada e saída de estoque
-- `marmores`: lista de mármores disponíveis com preço por m²
+- funcionarios: login e dados dos funcionários
+- clientes: dados do cliente, como nome, telefone e endereço
+- pedidos: pedido feito pelo cliente com metragem e tipo de mármore
+- pagamentos: forma de pagamento e status (pago, pendente, parcial)
+- entregas: datas e status das entregas
+- estoque: materiais usados e quantidade
+- movimentacoes_estoque: entrada e saída de estoque
+- marmores: lista de mármores disponíveis com preço por m²
