@@ -36,6 +36,48 @@ CREATE TABLE pedidos (
     FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
 );
 
+CREATE TABLE itens_pedido (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    marmore_id INT NOT NULL,
+    metragem DECIMAL(10,2) NOT NULL,
+    preco_m2 DECIMAL(10,2) NOT NULL,
+    preco_total_item DECIMAL(10,2) GENERATED ALWAYS AS (metragem * preco_m2) STORED,
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (marmore_id) REFERENCES marmores(id) ON DELETE RESTRICT
+);
+CREATE TABLE orcamentos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,
+    data_orcamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    status_orcamento ENUM('Em Análise', 'Aprovado', 'Recusado') DEFAULT 'Em Análise',
+    observacoes TEXT,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE
+);
+
+CREATE TABLE itens_orcamento (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    orcamento_id INT NOT NULL,
+    marmore_id INT NOT NULL,
+    metragem DECIMAL(10,2) NOT NULL,
+    preco_m2 DECIMAL(10,2) NOT NULL,
+    preco_total_item DECIMAL(10,2) GENERATED ALWAYS AS (metragem * preco_m2) STORED,
+    FOREIGN KEY (orcamento_id) REFERENCES orcamentos(id) ON DELETE CASCADE,
+    FOREIGN KEY (marmore_id) REFERENCES marmores(id) ON DELETE RESTRICT
+);
+
+CREATE TABLE enderecos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_id INT NOT NULL,              
+    tipo_endereco ENUM('Faturamento', 'Entrega') NOT NULL, 
+    endereco VARCHAR(200) NOT NULL,       
+    cidade VARCHAR(50) NOT NULL,          
+    estado VARCHAR(2),                    
+    cep VARCHAR(10),                      
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id) ON DELETE CASCADE  -- Relaciona com o cliente
+);
+
+
 -- Tabela de pagamentos
 CREATE TABLE pagamentos (
     id INT AUTO_INCREMENT PRIMARY KEY,
