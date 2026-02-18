@@ -25,3 +25,5 @@ O banco possui as seguintes tabelas:
 - estoque: materiais usados e quantidade
 - movimentacoes_estoque: entrada e saída de estoque
 - marmores: lista de mármores disponíveis com preço por m²
+
+-  Observação: Backend e Frontend foram desenvolvidos por outros integrantes do grupo.
