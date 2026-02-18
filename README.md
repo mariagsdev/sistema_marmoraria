@@ -26,4 +26,5 @@ O banco possui as seguintes tabelas:
 - movimentacoes_estoque: entrada e saída de estoque
 - marmores: lista de mármores disponíveis com preço por m²
 
--  Observação: Backend e Frontend foram desenvolvidos por outros integrantes do grupo.
+- ** Observação: Backend e Frontend foram desenvolvidos por outros integrantes do grupo. link abaixo:
+- https://github.com/mariagsdev/marmoraria_sistem
